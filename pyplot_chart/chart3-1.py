@@ -2,11 +2,12 @@ import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib import font_manager
 
-# 使用 Noto Serif CJK JP
-font_path = '/usr/share/fonts/opentype/noto/NotoSerifCJK-Regular.ttc'
-font_manager. fontManager.addfont(font_path)
-plt.rcParams['font.sans-serif'] = ['Noto Serif CJK JP', 'DejaVu Sans']
+plt.rcParams['font.family'] = 'sans-serif'
+plt.rcParams['font.sans-serif'] = ['SimSun', 'DejaVu Sans']
 plt.rcParams['axes.unicode_minus'] = False
+
+times = font_manager.FontProperties(family='Times New Roman')
+simsun = font_manager.FontProperties(family='SimSun')
 
 # 数据
 trading_days = [-10, -9, -8, -7, -6, -5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
@@ -47,7 +48,6 @@ ax.annotate(f'{cumulative_returns[max_idx]:.2f}%',
             fontsize=10, color='red', fontweight='bold')
 
 # 设置标题和标签
-ax.set_title('提议下修前后累计涨跌幅', fontsize=16, fontweight='bold', pad=20)
 ax.set_xlabel('交易日（相对提议下修公告日）', fontsize=13)
 ax.set_ylabel('累计涨跌幅（%）', fontsize=13)
 

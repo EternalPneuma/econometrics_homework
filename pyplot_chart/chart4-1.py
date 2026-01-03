@@ -2,11 +2,12 @@ import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib import font_manager
 
-# 使用 Noto Serif CJK JP
-font_path = '/usr/share/fonts/opentype/noto/NotoSerifCJK-Regular.ttc'
-font_manager. fontManager.addfont(font_path)
-plt.rcParams['font.sans-serif'] = ['Noto Serif CJK JP', 'DejaVu Sans']
+plt.rcParams['font.family'] = 'sans-serif'
+plt.rcParams['font.sans-serif'] = ['SimSun', 'DejaVu Sans']
 plt.rcParams['axes.unicode_minus'] = False
+
+times = font_manager.FontProperties(family='Times New Roman')
+simsun = font_manager.FontProperties(family='SimSun')
 
 # 数据
 categories = ['不下修公告', '提议下修公告']
@@ -18,7 +19,7 @@ total = [1940, 341]
 fig, axes = plt.subplots(1, 2, figsize=(14, 6))
 
 # 图1: 分组柱状图
-x = np. arange(len(categories))
+x = np.arange(len(categories))
 width = 0.25
 
 ax1 = axes[0]
